@@ -15,6 +15,7 @@ public class User extends Timestamped {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nickname;
     @Column(unique = true)
     private String email;
     private String password;
@@ -30,6 +31,13 @@ public class User extends Timestamped {
     private User(Long id, String email, UserRole userRole) {
         this.id = id;
         this.email = email;
+        this.userRole = userRole;
+    }
+
+    public User(String email, String nickname, String password, UserRole userRole) {
+        this.email = email;
+        this.nickname = nickname;
+        this.password = password;
         this.userRole = userRole;
     }
 
